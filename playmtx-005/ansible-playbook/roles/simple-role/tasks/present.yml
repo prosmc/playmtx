@@ -1,0 +1,25 @@
+
+- name: create a directory
+  file:
+    path: /tmp/{{ dir_name }}
+    state: directory
+    mode: 0700
+
+- name: "Copy Python file"
+  become: true
+  copy:
+    src:  "{{ item }}"
+    dest: "/tmp/{{ dir_name }}/{{ item | basename }}"
+    force: true
+    mode: 0755
+  with_fileglob:
+    - "*.py"
+
+- name: "Run the Python script"
+  shell: |
+    /tmp/{{ dir_name }}/{{ file_name }} {{mode}}
+  register: shell_output
+
+- debug: 
+    msg: "===> {{ shell_output['stdout'] }}"
+

@@ -1,0 +1,8 @@
+- hosts: all
+  #become: true
+  roles:
+    - simple-role
+  vars:
+    state: present
+    mode: stopped
+

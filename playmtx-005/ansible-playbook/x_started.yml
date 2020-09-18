@@ -1,0 +1,14 @@
+
+- name: playmtx-005
+  hosts: all
+  serial: 1
+  vars:
+    - state: present
+    - mode: started
+  tasks:
+    - debug:
+        msg: "playmtx-005 is successfully executed!"
+  roles:
+    - simple-role
+
+

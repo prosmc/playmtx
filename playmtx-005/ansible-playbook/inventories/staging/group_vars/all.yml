@@ -1,0 +1,7 @@
+# ansible vars
+ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+# x vars
+dir_name: app
+file_name: myapp.py
+

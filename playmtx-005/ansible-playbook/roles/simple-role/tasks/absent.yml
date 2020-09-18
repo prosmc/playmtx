@@ -1,0 +1,9 @@
+- name: remove file 
+  file:
+    path: /tmp/{{ dir_name }}/{{ file_name }}
+    state: absent 
+
+- name: remove a directory
+  file:
+    path: /tmp/{{ dir_name }}
+    state: absent 

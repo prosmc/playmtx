@@ -1,0 +1,13 @@
+
+APP_VM_NAME = ENV["APP_VM_NAME"] || "playmtx"
+APP_RESOURCES_DATA = ENV["APP_RESOURCES_DATA"] || "/tmp/resources/data"
+APP_PORT = ENV["APP_PORT"] || "8080"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/centos8"
+  config.vm.synced_folder APP_RESOURCES_DATA, "/data"
+  config.vm.network "forwarded_port", guest: APP_PORT, host: APP_PORT
+  config.vm.provider :virtualbox do |vb|
+      vb.name = APP_VM_NAME
+  end
+end

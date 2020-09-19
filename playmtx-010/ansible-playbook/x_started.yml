@@ -1,0 +1,16 @@
+---
+
+- name: playmtx-010
+  hosts: all
+  serial: 1
+  vars:
+    - state: present
+    - mode: started
+  tasks:
+    - debug:
+        msg: "playmtx-010 is successfully executed!"
+  roles:
+    - system
+    - docker
+
+

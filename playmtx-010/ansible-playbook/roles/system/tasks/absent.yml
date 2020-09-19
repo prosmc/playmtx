@@ -1,0 +1,14 @@
+---
+
+- name: Remove the yum-utils
+  yum:
+    name: yum-utils
+    state: absent
+  become: yes
+
+- name: Remove git
+  yum:
+    name: git
+    state: absent
+  become: yes
+

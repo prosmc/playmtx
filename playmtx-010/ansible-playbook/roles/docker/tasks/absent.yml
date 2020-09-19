@@ -1,0 +1,27 @@
+---
+
+- name: Include stop.yml
+  include_tasks: stop.yml
+
+- name: Ensure Docker repository is removed
+  file:
+    path: /etc/yum.repos.d/docker-ce.repo
+    state: absent
+  become: yes
+
+- name: Ensure Docker packages are removed
+  become: yes
+  yum:
+    name: 
+      - "docker-ce-*"
+      - "docker-ce-cli-*"
+    autoremove: yes
+
+- name: Ensure containerd.io is removed
+  become: yes
+  yum:
+    name:  "containerd.io-*"
+    autoremove: yes
+
+
+

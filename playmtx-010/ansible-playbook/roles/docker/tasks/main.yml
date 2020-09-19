@@ -1,0 +1,15 @@
+---
+
+- name: Add Docker repository
+  become: yes
+  get_url:
+    url: "{{ docker_repo_url }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- include_tasks: present.yml 
+  when: 
+    - state == "present" 
+    
+- include_tasks: absent.yml 
+  when: 
+    - state == "absent"

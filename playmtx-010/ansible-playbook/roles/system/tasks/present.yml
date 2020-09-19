@@ -1,0 +1,19 @@
+---
+
+- name: Upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+  become: yes
+
+- name: Install the yum-utils
+  yum:
+    name: yum-utils
+    state: latest
+  become: yes
+
+- name: Install git
+  yum:
+    name: git
+    state: latest
+  become: yes

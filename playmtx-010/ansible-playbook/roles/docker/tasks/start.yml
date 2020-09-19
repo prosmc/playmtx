@@ -1,0 +1,7 @@
+---
+
+- name: Start service docker
+  service:
+    name: docker
+    state: started
+  become: yes

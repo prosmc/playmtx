@@ -1,0 +1,8 @@
+---
+# role variables
+state: present 
+dir_name: "" 
+file_name: "" 
+mode: ""
+
+

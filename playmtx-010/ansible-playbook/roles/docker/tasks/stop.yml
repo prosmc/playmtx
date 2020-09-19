@@ -1,0 +1,8 @@
+---
+
+- name: Stop service docker
+  service:
+    name: docker
+    state: stopped
+  ignore_errors: yes
+  become: yes
